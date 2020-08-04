@@ -11,6 +11,9 @@ class Product(models.Model):
     register_date = models.DateTimeField(
         auto_now_add=True, verbose_name="등록날짜")
 
+    def __str__(self):
+        return self.name
+
     class Meta:  # admin 페이지 관리의 유용성 향상
         db_table = 'fastcampus_product'
         verbose_name = '상품'
