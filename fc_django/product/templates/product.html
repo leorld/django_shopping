@@ -1,4 +1,8 @@
 {% extends "base.html" %}
+{% load humanize %}
+<!-- humanize로 변수에 필터를 넣을수 있음 -->
+<!-- intcomma 로 3자리마다 ,표시 -->
+<!-- date:'' -->
 {% block contents %}
 <div class="row mt-5">
     <div class="col-12">
@@ -16,8 +20,8 @@
                 <tr>
                     <th scope='row'>{{ product.id }}</th>
                     <th scope='row'>{{ product.name }}</th>
-                    <th scope='row'>{{ product.price }}</th>
-                    <th scope='row'>{{ product.register_date }}</th>
+                    <th scope='row'>{{ product.price|intcomma }}원</th>
+                    <th scope='row'>{{ product.register_date|date:'Y-m-d H:i' }}</th>
                 </tr>
                 {% endfor %}
             </tbody>
